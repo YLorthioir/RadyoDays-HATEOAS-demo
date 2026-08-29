@@ -1,0 +1,18 @@
+:root { font-family: Inter, system-ui, sans-serif; color: #27211d; background: #f7f1e8; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1100px; margin: auto; padding: 32px 20px; }
+header { margin-bottom: 28px; } h1 { font-size: 42px; margin: 10px 0 4px; } h2 { margin-top: 8px; }
+.badge { color: #986029; font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.layout { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 18px; }
+.catalog, .detail { background: white; border: 1px solid #eadfce; border-radius: 18px; padding: 24px; box-shadow: 0 8px 30px #6d4c1b12; }
+.hint, small { color: #806f60; font-size: 13px; } small { display: block; margin-top: 4px; }
+.beer-card { width: 100%; display: flex; align-items: center; gap: 14px; border: 0; border-top: 1px solid #eee4d7; background: white; padding: 16px 2px; text-align: left; cursor: pointer; }
+.beer-card:hover { color: #a75e1a; } .beer-icon { font-size: 25px; } .price { margin-left: auto; font-weight: 700; }
+.facts { display: flex; gap: 10px; margin: 24px 0; } .facts span { background: #f7f1e8; border-radius: 8px; padding: 10px; }
+.actions { border-top: 1px solid #eadfce; padding-top: 15px; } label { display: block; font-size: 13px; margin: 12px 0 5px; }
+input { width: 100%; border: 1px solid #d8c7b2; border-radius: 7px; padding: 10px; margin-top: 5px; font: inherit; }
+button { border: 1px solid #cda879; border-radius: 7px; background: #fffaf3; color: #754617; padding: 9px 13px; cursor: pointer; margin: 5px 5px 5px 0; }
+button.primary { background: #a75e1a; color: white; border-color: #a75e1a; width: 100%; margin-top: 16px; }
+.link-button { border: 0; background: none; padding: 0; } .error, .sold-out { color: #a33d32; }
+@media (max-width: 750px) { .layout { grid-template-columns: 1fr; } h1 { font-size: 32px; } }
