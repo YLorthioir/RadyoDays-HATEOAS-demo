@@ -10,9 +10,12 @@ import { Beer, BeerApiService, HateoasResource } from './beer-api.service';
   template: `
     <main>
       <header>
-        <span class="badge">HATEOAS · niveau 3</span>
+        <span class="badge">HATEOAS · Quand l’API guide le client</span>
         <h1>{{ barName || 'Beer Bar' }}</h1>
         <p>Le client suit les liens fournis par l'API.</p>
+        @if(president) {
+        <h6>Gloire à {{ president }}</h6>
+        }
       </header>
 
       @if (error) {
@@ -55,8 +58,7 @@ import { Beer, BeerApiService, HateoasResource } from './beer-api.service';
             }
             @if (beer._links['order']; as orderLink) {
               <button class="primary" (click)="order(orderLink)">Commander une bière</button>
-            }
-            @if (!beer._links['order']) {
+            } @else {
               <p class="sold-out">Commande indisponible : stock épuisé.</p>
             }
           </div>
@@ -71,6 +73,7 @@ import { Beer, BeerApiService, HateoasResource } from './beer-api.service';
 export class AppComponent {
   private readonly api = inject(BeerApiService);
   barName = '';
+  president ?: string;
   beers: Beer[] = [];
   selectedBeer?: Beer;
   catalogLink?: HateoasResource;
@@ -84,6 +87,7 @@ export class AppComponent {
     this.api.getRoot().subscribe({
       next: root => {
         this.barName = (root as unknown as { name?: string }).name ?? 'Infortunes Beer Bar';
+        this.president = (root as unknown as { president?: string }).president;
         this.catalogLink = root._links['beers'];
         this.loadCatalog();
       }, error: () => this.error = 'Impossible de joindre le bar. Démarrez d’abord Spring Boot.'
