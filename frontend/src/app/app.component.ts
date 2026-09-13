@@ -13,6 +13,10 @@ import { Beer, BeerApiService, HateoasResource } from './beer-api.service';
         <span class="badge">HATEOAS · Quand l’API guide le client</span>
         <h1>{{ barName || 'Beer Bar' }}</h1>
         <p>Le client suit les liens fournis par l'API.</p>
+        <details class="menu-easter-egg">
+          <summary>La carte 🍺</summary>
+          <img src="assets/IMG_4734.jpg" alt="La carte du bar : une sélection de bières à 1,40 €" loading="lazy">
+        </details>
         @if(president) {
         <h6>Gloire à {{ president }}</h6>
         }
@@ -68,7 +72,11 @@ import { Beer, BeerApiService, HateoasResource } from './beer-api.service';
       }
     </main>
   `,
-  styles: []
+  styles: [`
+    .menu-easter-egg { margin-top: 16px; }
+    .menu-easter-egg summary { width: fit-content; color: #754617; cursor: pointer; }
+    .menu-easter-egg img { display: block; width: 100%; max-width: 420px; height: auto; margin-top: 12px; border-radius: 12px; }
+  `]
 })
 export class AppComponent {
   private readonly api = inject(BeerApiService);
