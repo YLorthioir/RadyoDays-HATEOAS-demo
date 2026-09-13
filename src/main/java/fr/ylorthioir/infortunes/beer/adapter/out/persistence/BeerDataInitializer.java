@@ -12,8 +12,8 @@ public class BeerDataInitializer {
     @Bean CommandLineRunner loadBeers(BeerRepositoryPort repository) {
         return args -> {
             if (repository.findAll().isEmpty()) {
-                repository.save(new Beer(null, "Orval", "Brasserie d'Orval", "Trappiste", new BigDecimal("4.50"), 12));
-                repository.save(new Beer(null, "Rocherfort 10", "Abbaye Notre-Dame de Saint-Remy", "Trappiste", new BigDecimal("5.90"), 8));
+                repository.save(new Beer(null, "Orval", "Brasserie d'Orval", "Trappiste", new BigDecimal("1.40"), 12));
+                repository.save(new Beer(null, "Rocherfort 8", "Abbaye Notre-Dame de Saint-Remy", "Trappiste", new BigDecimal("1.40"), 8));
                 repository.save(new Beer(null, "Chimay Bleue", "Abbaye Notre-Dame de Scourmont", "Bière médicinale", new BigDecimal("5.50"), 0));
                 repository.save(new Beer(null, "Cardyo", "Non-abbaye de Radyo", "Blonde dans l'idée d'une API", new BigDecimal("0"), 0));
             }
